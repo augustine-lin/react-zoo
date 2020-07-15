@@ -14,12 +14,12 @@
   display: flex;
   height: calc(100% - 58px - 34px) ;
 }
-.App .container .section1{
-  width: 70%;
+.App .container .animalTable{
+  width: 55%;
   padding: 16px;
 }
-.App .container .section2{
-  width: 30%;
+.App .container .animalDetail{
+  width: 45%;
   padding: 16px;
 }
 
@@ -28,11 +28,13 @@
   padding: 8px;
   background-color: darkgray;
 }
-table, th, td {
+/* animalTable */
+.animalTable table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
 }
-.animalTable {
+
+.animalTable table {
   width: 100%;
   text-align: center;
 }
@@ -53,4 +55,20 @@ table, th, td {
 .animalTable img {
   height: 10rem;
   object-fit: contain;
+}
+
+/* animalDetail */
+.animalDetail .box{
+  padding: 12px;
+}
+.animalDetail img{
+  padding-top: 12px; 
+  height: 10rem;
+  object-fit: contain;
+}
+
+.animalDetail .emptyTip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
