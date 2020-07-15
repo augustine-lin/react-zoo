@@ -12,13 +12,13 @@
 
 .App .container{
   display: flex;
-  height: calc(100% - 58px - 34px) ;
+  min-height: calc(100% - 58px - 34px) ;
 }
-.App .container .animalTable{
+.App .container .animalTableBox{
   width: 55%;
   padding: 16px;
 }
-.App .container .animalDetail{
+.App .container .animalDetailBox{
   width: 45%;
   padding: 16px;
 }
@@ -28,6 +28,42 @@
   padding: 8px;
   background-color: darkgray;
 }
+
+.btn {
+  background-color: grey; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btn.small {
+  padding: 11px 24px;
+  font-size: 12px;
+}
+.btn.success{
+  background-color: #4CAF50; /* Green */
+}
+.btn.success:hover{
+  background-color: #3e8f40; /* Green */
+}
+.btn.danger{
+  background-color: #c72f2f; /* Green */
+}
+.btn.danger:hover{
+  background-color: #9c2626; /* Green */
+}
+
+/* animalTableBox > topBar */
+
+.animalTableBox .topBar {
+  padding: 12px 0;
+}
+
 /* animalTable */
 .animalTable table, th, td {
   border: 1px solid black;
@@ -43,7 +79,7 @@
   cursor: pointer;
 }
 
-.animalTable tr:hover{
+.animalTable tbody tr:hover{
   background-color: #DFE7F2;
   color: #000000;
 }
@@ -67,8 +103,21 @@
   object-fit: contain;
 }
 
-.animalDetail .emptyTip {
+/* emptyTip */
+.emptyTip {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.smallBox {
+  padding: 8px;
+}
+
+.radioBtn{
+  margin-top: 8px;
+}
+.radioBtn input,label{
+  margin-right: 8px;
 }

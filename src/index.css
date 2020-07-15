@@ -1,3 +1,31 @@
 html, body, #root {
     height: 100%;
 }
+
+.flex {
+    display: flex;
+    
+}
+.flex.justify-between {
+    justify-content: space-between;
+}
+
+.mr-1 {
+    margin-right: 4px;
+}
+
+.mr-2 {
+    margin-right: 8px;
+}
+
+.m-2 {
+    margin: 8px;
+}
+
+.p-2 {
+    padding: 8px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
