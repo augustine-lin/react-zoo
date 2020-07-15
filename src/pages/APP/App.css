@@ -28,3 +28,29 @@
   padding: 8px;
   background-color: darkgray;
 }
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.animalTable {
+  width: 100%;
+  text-align: center;
+}
+
+.animalTable tbody tr {
+  cursor: pointer;
+}
+
+.animalTable tr:hover{
+  background-color: #DFE7F2;
+  color: #000000;
+}
+
+.animalTable td {
+  padding: 12px;
+}
+
+.animalTable img {
+  height: 10rem;
+  object-fit: contain;
+}
