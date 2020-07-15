@@ -30,7 +30,7 @@ function App() {
             {
               list.map(animal => {
                 return (
-                  <tr>
+                  <tr key={animal.name}>
                     <td>{animal.name}</td>
                     <td>{animal.type}</td>
                     <td>{animal.gender === 'm' ? '男性' : '女性'}</td>
