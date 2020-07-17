@@ -1,7 +1,7 @@
 import React from 'react'
+
 const AnimalTable = (props) => {
   const { list, toGender, handleSetDetailClick } = props
-
   return (
     <div className="animalTable">
       <table>
@@ -15,16 +15,14 @@ const AnimalTable = (props) => {
         </thead>
         <tbody>
           {
-            list.map(animal => {
-              return (
-                <tr key={animal.name} onClick={() => handleSetDetailClick(animal)}>
-                  <td>{animal.name}</td>
-                  <td>{animal.type}</td>
-                  <td>{toGender(animal.gender)}</td>
-                  <td><img src={animal.imgSrc} alt={animal.name} /></td>
-                </tr>
-              )
-            })
+            list.map((animal) => (
+              <tr key={animal.name} onClick={() => handleSetDetailClick(animal)}>
+                <td>{animal.name}</td>
+                <td>{animal.type}</td>
+                <td>{toGender(animal.gender)}</td>
+                <td><img src={animal.imgSrc} alt={animal.name} /></td>
+              </tr>
+            ))
           }
         </tbody>
       </table>
