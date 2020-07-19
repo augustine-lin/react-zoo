@@ -1,12 +1,26 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { useTranslation } from 'react-i18next'
+
 import './App.css'
 import FakeAnimalList from '../../fakeData/animalList'
+import HeaderBlock from '../../components/Header'
 import AnimalTable from '../../components/AnimalTable'
 import AnimalDetail from '../../components/AnimalDetail'
 import EmptyTip from '../../components/EmptyTip'
 
-function App() {
+function App(props) {
+  const { t, i18n } = useTranslation()
+  // redux state
+  const { lang } = props
+  console.log(lang)
+  // watch lang
+  useEffect(() => {
+    // i18n 提供轉換語系的API
+    if (lang !== null) i18n.changeLanguage(lang)
+  }, [i18n, lang])
+
   // init Object
   const animalObj = {
     id: '',
@@ -105,13 +119,13 @@ function App() {
   // Main Page - APP
   return (
     <div className="App">
-      <div className="header">
-        動物園的動物清單
-      </div>
+      <HeaderBlock />
       <div className="container">
         <div className="animalTableBox">
           <div className="topBar">
-            <button className="btn success" onClick={openAdd}>新增動物</button>
+            <button type="button" className="btn success" onClick={openAdd}>
+              {t('createAnimal')}
+            </button>
           </div>
           <AnimalTable
             list={list}
@@ -122,7 +136,7 @@ function App() {
         <div className="animalDetailBox">
           {
             !isEdit && !detail.name
-              ? <EmptyTip text="請於動物列表中選取任一動物" />
+              ? <EmptyTip text={t('msg.selectOneAnimal')} />
               : (
                 <AnimalDetail
                   detail={detail}
@@ -146,4 +160,9 @@ function App() {
     </div>
   )
 }
-export default App
+
+const mapState = (state) => ({ ...state })
+// 也可以拿某一個redux state
+// const mapState = (state) => ({ lang: state.lang })
+
+export default connect(mapState)(App)

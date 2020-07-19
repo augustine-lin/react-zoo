@@ -103,16 +103,16 @@ const AnimalDetail = (props) => {
               ? (
                 <div>
                   {
-                  detail.foods.length > 0 && detail.foods.map((food, index) => (
-                    <div className="p-2" key={food}>
-                      <span>{index + 1} - </span>
-                      <span>{food} </span>
-                      <span role="presentation" onClick={(e) => delArrayItem('foods', food, e)}>
-                        <i className="fas fa-trash-alt" />
-                      </span>
-                    </div>
-                  ))
-                }
+                    detail.foods.length > 0 && detail.foods.map((food, index) => (
+                      <div className="p-2" key={food}>
+                        <span>{index + 1} - </span>
+                        <span>{food} </span>
+                        <span role="presentation" onClick={(e) => delArrayItem('foods', food, e)}>
+                          <i className="fas fa-trash-alt" />
+                        </span>
+                      </div>
+                    ))
+                  }
                   <AddInput className="p-2" name="foods" />
                 </div>
               )
@@ -126,16 +126,16 @@ const AnimalDetail = (props) => {
               ? (
                 <div>
                   {
-                  detail.features.length > 0 && detail.features.map((feature, index) => (
-                    <div className="p-2" key={feature}>
-                      <span>{index + 1} - </span>
-                      <span>{feature} </span>
-                      <span role="presentation" onClick={() => delArrayItem('features', feature)}>
-                        <i className="fas fa-trash-alt" />
-                      </span>
-                    </div>
-                  ))
-                }
+                    detail.features.length > 0 && detail.features.map((feature, index) => (
+                      <div className="p-2" key={feature}>
+                        <span>{index + 1} - </span>
+                        <span>{feature} </span>
+                        <span role="presentation" onClick={() => delArrayItem('features', feature)}>
+                          <i className="fas fa-trash-alt" />
+                        </span>
+                      </div>
+                    ))
+                  }
                   <AddInput className="p-2" name="features" />
                 </div>
               )
@@ -151,38 +151,38 @@ const AnimalDetail = (props) => {
           }
         </div>
         {
-         isEdit && (
-         <div className="flex justify-between">
-           {
-              detail.name && (
+          isEdit && (
+            <div className="flex justify-between">
+              {
+                detail.name && (
+                  <div className="box">
+                    <button
+                      type="button"
+                      className="btn small danger"
+                      onClick={() => delAnimal(detail)}
+                    >
+                      移除
+                    </button>
+                  </div>
+                )
+              }
               <div className="box">
                 <button
                   type="button"
-                  className="btn small danger"
-                  onClick={() => delAnimal(detail)}
+                  className="btn small mr-1"
+                  onClick={cancelEdit}
                 >
-                  移除
+                  取消
+                </button>
+                <button
+                  className="btn small success"
+                  onClick={saveEdit}
+                >
+                  確認
                 </button>
               </div>
-              )
-            }
-           <div className="box">
-             <button
-               type="button"
-               className="btn small mr-1"
-               onClick={cancelEdit}
-             >
-               取消
-             </button>
-             <button
-               className="btn small success"
-               onClick={saveEdit}
-             >
-               確認
-             </button>
-           </div>
-         </div>
-         )
+            </div>
+          )
         }
       </div>
     </>
